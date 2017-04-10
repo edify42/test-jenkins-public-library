@@ -5,6 +5,7 @@ def call(args = null) {
     def USERNAME = args.get("username", null)
     String branchName = "${env.BRANCH_NAME}"
     echo "${branchName} is the branch name"
+    echo "${USERNAME} is not null"
     def artifactory = "http://172.17.0.1:8020/artifactory"
 
     if (!repoPath) {
