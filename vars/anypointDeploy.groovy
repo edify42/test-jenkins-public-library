@@ -37,7 +37,7 @@ def call(args = null) {
          if (ENV == 'Production'){
            def server = 'anypoint-prod-' + serverNumber
            timeout(time:1, unit:'DAYS') {
-               input message:'Final approval for Production Deployment?' submitter: ddeloit1,admin
+               input message:'Final approval for Production Deployment?', submitter: 'ddeloit1,admin'
            }
            sh "${tool 'M3'}/bin/mvn -DaltDeploymentRepository='JCU Artifactory::default::${artifactory}/${repoPath}' -Dmaven.test.skip.exec=true -Denv.user=${USERNAME} -Denv.pass=${PASSWORD} -Denv.deployenv=${ENV} -Denv.target=${server} clean deploy -f Deployment/pom.xml"
          }
