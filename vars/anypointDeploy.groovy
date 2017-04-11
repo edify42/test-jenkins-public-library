@@ -45,4 +45,5 @@ def call(args = null) {
 
       default:
          throw new Exception("No suitable branch for Anypoint code deployment")
+    }
 }
