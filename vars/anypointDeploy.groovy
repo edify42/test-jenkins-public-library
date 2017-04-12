@@ -23,7 +23,7 @@ def call(args = null) {
          }
          String repoPath = 'anypoint-snapshot-local'
          def server = 'anypoint-test-' + serverNumber
-         sh "${tool 'M3'}/bin/mvn -DaltDeploymentRepository='JCU Artifactory::default::${artifactory}/${repoPath}' -Dmaven.test.skip.exec=true -Denv.user=${USERNAME} -Denv.pass=${PASSWORD} -Denv.deployenv=${ENV} -Denv.target=${server} clean deploy -f Deployment/pom.xml"
+         sh "${tool 'M3'}/bin/mvn -DaltDeploymentRepository='JCU Artifactory::default::${artifactory}/${repoPath}' -U -Dmaven.test.skip.exec=true -Denv.user=${USERNAME} -Denv.pass=${PASSWORD} -Denv.deployenv=${ENV} -Denv.target=${server} clean deploy -f Deployment/pom.xml"
          break
       case 'master':
          if (ENV != 'UAT' || 'Production') {
